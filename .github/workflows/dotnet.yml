@@ -36,7 +36,7 @@ jobs:
         if-no-files-found: warn
   deploytodev: 
     runs-on: ubuntu-latest
-    environment: production
+    environment: dev
     needs: build 
     steps:
     - name: Download a Build Artifact
@@ -53,7 +53,7 @@ jobs:
   deploytoqa: 
     runs-on: ubuntu-latest
     environment: qa
-    needs: build 
+    needs: deploytodev 
     steps:
     - name: Download a Build Artifact
       uses: actions/download-artifact@v2.1.0
@@ -69,7 +69,7 @@ jobs:
   deploytoprod: 
     runs-on: ubuntu-latest
     environment: production
-    needs: build 
+    needs: deploytoqa 
     steps:
     - name: Download a Build Artifact
       uses: actions/download-artifact@v2.1.0
