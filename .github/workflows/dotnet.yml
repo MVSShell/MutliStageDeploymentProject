@@ -34,7 +34,7 @@ jobs:
         name: webapp
         path: website/**
         if-no-files-found: warn
-  deploy: 
+  deploytodev: 
     runs-on: ubuntu-latest
     environment: production
     needs: build 
@@ -49,4 +49,37 @@ jobs:
       with:
         app-name: mvsshellmultistagedeploymentgithub
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE  }}
-        package: webapp    
+        package: webapp 
+  deploytoqa: 
+    runs-on: ubuntu-latest
+    environment: qa
+    needs: build 
+    steps:
+    - name: Download a Build Artifact
+      uses: actions/download-artifact@v2.1.0
+      with:
+        name: webapp
+        path: webapp
+    - name: Deploy web app
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: mvsshellmultistagedeploymentgithub
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE  }}
+        package: webapp 
+  deploytoprod: 
+    runs-on: ubuntu-latest
+    environment: production
+    needs: build 
+    steps:
+    - name: Download a Build Artifact
+      uses: actions/download-artifact@v2.1.0
+      with:
+        name: webapp
+        path: webapp
+    - name: Deploy web app
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: mvsshellmultistagedeploymentgithub
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE  }}
+        package: webapp 
+  
