@@ -36,6 +36,7 @@ jobs:
         if-no-files-found: warn
   deploy: 
     runs-on: ubuntu-latest
+    environment: production
     needs: build 
     steps:
     - name: Download a Build Artifact
