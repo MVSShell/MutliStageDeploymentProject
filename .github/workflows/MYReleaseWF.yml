@@ -4,7 +4,7 @@ on:
   workflow_call:  
   
 jobs:
-  call-workflow:
+  call:
     uses: ./.github/workflows/MyBuildWF.yml
   deploy:
     runs-on: windows-latest
