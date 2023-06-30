@@ -1,4 +1,4 @@
-name: Build and deploy ASP.Net Core app to Azure Web App - mvsshellmultistagedeploymentgithub
+name: Build ASP.Net Core app to Azure Web App - mvsshellmultistagedeploymentgithub
 
 on:
   push:
@@ -31,5 +31,5 @@ jobs:
           name: .net-app
           path: ${{env.DOTNET_ROOT}}/myapp
       
-      - name: OutputRunNumberrun:echo${{github.run_number}}
-        run: echo "Run# ${{ github.run_number }}"
+      - name: OutputRunNumberrun:echo${{github.run_id}}
+        run: echo "Run# ${{ github.run_id }}"
