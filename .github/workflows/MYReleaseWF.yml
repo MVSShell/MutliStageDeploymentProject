@@ -8,7 +8,7 @@ jobs:
     uses: ./.github/workflows/MyBuildWF.yml
   deploy:
     runs-on: windows-latest
-    #needs: ./.github/workflows/MyBuildWF.yml
+    #needs: ./.github/workflows/MyBuildWF.yml@master
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
