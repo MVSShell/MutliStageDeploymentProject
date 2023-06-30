@@ -5,7 +5,7 @@ on:
   
 jobs:
   call:
-    uses: ./.github/workflows/MyBuildWF.yml
+    uses: ./.github/workflows/MyBuildWF.yml@master
   deploy:
     runs-on: windows-latest
     #needs: ./.github/workflows/MyBuildWF.yml@master
