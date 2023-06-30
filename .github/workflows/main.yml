@@ -1,0 +1,31 @@
+name: Call a reusable workflow
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  call-workflow:
+    uses: ./.github/workflows/MyBuildWF.yml
+  deploy:
+    runs-on: windows-latest
+    #needs: ./.github/workflows/MyBuildWF.yml
+    environment:
+      name: 'Production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v2
+        with:
+          name: .net-app
+
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'mvsshellmultistagedeploymentgithub'
+          slot-name: 'Production'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D1252A560D1D45CD95B8DCE02611704C }}
+          package: .
