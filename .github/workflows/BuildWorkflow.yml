@@ -30,3 +30,6 @@ jobs:
         with:
           name: .net-app
           path: ${{env.DOTNET_ROOT}}/myapp
+      
+      - name: OutputRunNumberrun:echo${{github.run_number}}
+        run: echo "Run# ${{ github.run_number }}"
