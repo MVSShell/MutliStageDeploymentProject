@@ -16,15 +16,11 @@ jobs:
       
 
     steps:
-      #- name: Download artifact from build job
-      #  uses: actions/download-artifact@v2
-      #  with:
-      #    name: .net-app
-      
-      - name: Download workflow artifact (sidx1024)
-        uses: sidx1024/action-download-artifact@v2.21.2
-        run_id: 5421666067
-          
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v2
+        with:
+          name: mvsbuildartifact-8      
+    
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
