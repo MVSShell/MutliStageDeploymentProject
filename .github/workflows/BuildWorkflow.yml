@@ -28,8 +28,8 @@ jobs:
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
-          name: .net-app
+          name: mvsbuildartifact-${{ github.run_number }}
           path: ${{env.DOTNET_ROOT}}/myapp
       
-      - name: OutputRunNumberrun:echo${{github.run_id}}
-        run: echo "Run# ${{ github.run_id }}"
+      #- name: OutputRunNumberrun:echo${{github.run_id}}
+      #  run: echo "Run# ${{ github.run_id }}"
