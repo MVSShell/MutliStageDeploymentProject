@@ -4,7 +4,7 @@ on:
   workflow_run:
     workflows: [BuildWorkflow]
     types: [completed]
-
+  workflow_dispatch:
 jobs:
   deploy:
     runs-on: windows-latest
