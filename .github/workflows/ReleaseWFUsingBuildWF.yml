@@ -3,7 +3,7 @@ name: Deploy ASP.Net Core app to Azure Web App - mvsshellmultistagedeploymentgit
 on:
   workflow_run:
     workflows: [BuildWorkflow]
-    types: [completed]
+    types: [requested]
   workflow_dispatch:
 jobs:
   deploy:
@@ -18,7 +18,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
         with:    
-          name: mvsbuildartifact-${{ github.run_number }}      
+          name: mvsbuildartifact-15      
           path: ${{env.DOTNET_ROOT}}/myapp         
 
       - name: Deploy to Azure Web App
