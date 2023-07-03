@@ -18,7 +18,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
         with:    
-          name: mvsbuildartifact-15      
+          name: mvsbuildartifact-${{ github.run_number }}      
           path: ${{env.DOTNET_ROOT}}/myapp         
 
       - name: Deploy to Azure Web App
