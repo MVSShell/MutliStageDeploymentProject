@@ -50,8 +50,8 @@ jobs:
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
-        with:
-          app-name: 'mvsshellmultistagedeploymentgithub'
+        with: 
+          app-name: 'nttdatawebapp-qa-gubjevbudqb6bchn'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D1252A560D1D45CD95B8DCE02611704C }}
           package: .
