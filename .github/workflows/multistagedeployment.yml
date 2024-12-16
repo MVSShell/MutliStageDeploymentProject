@@ -47,7 +47,7 @@ jobs:
     - name: Deploy web app
       uses: azure/webapps-deploy@v2
       with:
-        app-name: nttdatawebapp-qa-gubjevbudqb6bchn
+        app-name: nttdatawebapp-dev-gubjevbudqb6bchn
         publish-profile: ${{ secrets.AZURE_DEV_WEBAPP_PUBLISH_PROFILE  }}
         package: webapp 
   deploytoqa: 
@@ -79,7 +79,7 @@ jobs:
     - name: Deploy web app
       uses: azure/webapps-deploy@v2
       with:
-        app-name: nttdatawebapp-qa-gubjevbudqb6bchn
+        app-name: nttdatawebapp-edcsfkfbhdfradet
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE  }}
         package: webapp 
   
