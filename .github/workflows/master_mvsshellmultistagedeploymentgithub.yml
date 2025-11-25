@@ -51,9 +51,10 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with: 
-          app-name: 'gactionsdemo-btgmcchthbe7buet'
+          app-name: 'gactionsdemo-btgmcchthbe7buet.southindia-01.azurewebsites.net'
           slot-name: 'Production'
           publish-profile: ${{ secrets.GACTIONSPUBLISHPROFILE}}
           package: .
+
 
 
