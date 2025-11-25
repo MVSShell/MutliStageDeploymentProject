@@ -53,6 +53,7 @@ jobs:
         with: 
           app-name: 'gactionsdemo-btgmcchthbe7buet'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D1252A560D1D45CD95B8DCE02611704C }}
+          publish-profile: ${{ secrets.GACTIONSPUBLISHPROFILE}}
           package: .
+
 
